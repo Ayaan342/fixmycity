@@ -9,7 +9,7 @@ function Navbar({ issueCount, myIssueCount }) {
     <nav className="navbar">
       <div className="navbar-inner">
         <div className="navbar-brand">
-          <div className="brand-icon">FS</div>
+          <div className="brand-icon">FM</div>
           Fix<span className="city">MyCity</span>
         </div>
         <div className="navbar-links">
