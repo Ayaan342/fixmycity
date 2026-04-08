@@ -102,7 +102,7 @@ function Dashboard({ issues, onUpvote }) {
           </button>
         ))}
         <div className="search-bar">
-          🔍
+          
           <input
             type="text"
             placeholder="Search issues…"
