@@ -14,7 +14,7 @@ function statusBadgeClass(status) {
 function statusIcon(status) {
   if (status === "Pending")     ;
   if (status === "In Progress") ;
-  if (status === "Resolved")    return "✅";
+  if (status === "Resolved")    ;
   return "";
 }
 
@@ -88,7 +88,7 @@ class MyIssues extends Component {
             {filtered.map((issue) => {
               const engineer = ENGINEERS.find((e) => e.id === issue.engineerId) || ENGINEERS[5];
               const catColor = CATEGORY_COLORS[issue.category] || "#2563eb";
-              const catIcon  = CATEGORY_ICONS[issue.category]  || "📋";
+              const catIcon  = CATEGORY_ICONS[issue.category]  || "";
 
               return (
                 <div
