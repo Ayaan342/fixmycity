@@ -73,7 +73,7 @@ function Dashboard({ issues, onUpvote }) {
           </div>
         </div>
         <div className="mini-stat">
-          <div className="mini-stat-icon" style={{ background: "#fef9c3" }}></div>
+          <div className="mini-stat-icon" style={{ background: "#fef9c3" }}>👍</div>
           <div>
             <div className="mini-stat-num" style={{ color: "#ca8a04" }}>{totalVotes}</div>
             <div className="mini-stat-lbl">Total Upvotes</div>
