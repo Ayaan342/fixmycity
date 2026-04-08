@@ -18,20 +18,20 @@ function Navbar({ issueCount, myIssueCount }) {
             end
             className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}
           >
-            🏠 Dashboard
+             Dashboard
             <span className="nav-badge">{issueCount}</span>
           </NavLink>
           <NavLink
             to="/report"
             className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}
           >
-            ➕ Report Issue
+             Report Issue
           </NavLink>
           <NavLink
             to="/my-issues"
             className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}
           >
-            📁 My Issues
+             My Issues
             {myIssueCount > 0 && (
               <span className="nav-badge" style={{ background: "#16a34a" }}>{myIssueCount}</span>
             )}
@@ -40,7 +40,7 @@ function Navbar({ issueCount, myIssueCount }) {
             to="/admin"
             className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}
           >
-            🛡️ Admin Panel
+             Admin Panel
           </NavLink>
         </div>
       </div>
