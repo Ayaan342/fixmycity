@@ -106,7 +106,7 @@ function AdminPanel({ issues, onStatusChange }) {
                     </div>
                   </td>
                   <td>
-                    <div className="upvote-count">👍{issue.upvotes}</div>
+                    <div className="upvote-count">{issue.upvotes}</div>
                   </td>
                   <td>
                     <select
