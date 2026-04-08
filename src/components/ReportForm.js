@@ -59,7 +59,7 @@ function ReportForm({ onSubmit }) {
   return (
     <div className="report-form-wrap">
       <div className="form-card">
-        <h2 className="form-heading">📢 Report an Issue</h2>
+        <h2 className="form-heading">Report an Issue</h2>
         <p className="form-subheading">
           Help us fix your city. Fill in the details below and submit your complaint.
         </p>
@@ -83,12 +83,12 @@ function ReportForm({ onSubmit }) {
               maxLength={120}
             />
             {errors.title && (
-              <span className="form-error">⚠️ {errors.title}</span>
+              <span className="form-error"> {errors.title}</span>
             )}
           </div>
 
           <div className="form-group">
-            <label className="form-label" htmlFor="location">📍 Location</label>
+            <label className="form-label" htmlFor="location"> Location</label>
             <input
               id="location"
               name="location"
@@ -99,7 +99,7 @@ function ReportForm({ onSubmit }) {
               maxLength={200}
             />
             {errors.location && (
-              <span className="form-error">⚠️ {errors.location}</span>
+              <span className="form-error"> {errors.location}</span>
             )}
           </div>
 
@@ -120,7 +120,7 @@ function ReportForm({ onSubmit }) {
               ))}
             </select>
             {errors.category && (
-              <span className="form-error">⚠️ {errors.category}</span>
+              <span className="form-error"> {errors.category}</span>
             )}
           </div>
 
@@ -145,7 +145,7 @@ function ReportForm({ onSubmit }) {
                     {engineerForCategory.name}
                   </div>
                   <div style={{ color: "var(--text-muted)", fontSize: "0.8rem" }}>
-                    📞 {engineerForCategory.contact}
+                     {engineerForCategory.contact}
                   </div>
                 </div>
               </div>
@@ -164,7 +164,7 @@ function ReportForm({ onSubmit }) {
               maxLength={500}
             />
             {errors.description && (
-              <span className="form-error">⚠️ {errors.description}</span>
+              <span className="form-error"> {errors.description}</span>
             )}
             <span style={{ fontSize: "0.75rem", color: "var(--text-light)", textAlign: "right" }}>
               {form.description.length}/500
@@ -173,7 +173,7 @@ function ReportForm({ onSubmit }) {
 
           <div className="form-btn-row">
             <button type="button" className="clear-btn" onClick={handleClear}>
-              🗑️ Clear
+               Clear
             </button>
             <button type="submit" className="submit-btn">
               Submit Report →
