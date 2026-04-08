@@ -32,17 +32,17 @@ function AdminPanel({ issues, onStatusChange }) {
           <div className="stat-label">Total Issues</div>
         </div>
         <div className="stat-card">
-          <div className="stat-icon">🕐</div>
+          <div className="stat-icon"></div>
           <div className="stat-value" style={{ color: "#f97316" }}>{pending}</div>
           <div className="stat-label">Pending</div>
         </div>
         <div className="stat-card">
-          <div className="stat-icon">🔧</div>
+          <div className="stat-icon"></div>
           <div className="stat-value" style={{ color: "#7c3aed" }}>{inProgress}</div>
           <div className="stat-label">In Progress</div>
         </div>
         <div className="stat-card">
-          <div className="stat-icon">✅</div>
+          <div className="stat-icon"></div>
           <div className="stat-value" style={{ color: "#10b981" }}>{resolved}</div>
           <div className="stat-label">Resolved</div>
         </div>
