@@ -35,7 +35,7 @@ function Dashboard({ issues, onUpvote }) {
     <div className="dashboard-wrap">
       <div className="dashboard-hero">
         <div className="hero-text">
-          <h1>City Issue Dashboard 🏙️</h1>
+          <h1>City Issue Dashboard</h1>
           <p>Track and upvote civic problems reported by citizens in your area.</p>
         </div>
         <button className="hero-cta" onClick={() => navigate("/report")}>
@@ -73,7 +73,7 @@ function Dashboard({ issues, onUpvote }) {
           </div>
         </div>
         <div className="mini-stat">
-          <div className="mini-stat-icon" style={{ background: "#fef9c3" }}>👍</div>
+          <div className="mini-stat-icon" style={{ background: "#fef9c3" }}></div>
           <div>
             <div className="mini-stat-num" style={{ color: "#ca8a04" }}>{totalVotes}</div>
             <div className="mini-stat-lbl">Total Upvotes</div>
