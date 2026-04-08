@@ -12,8 +12,8 @@ function statusBadgeClass(status) {
 }
 
 function statusIcon(status) {
-  if (status === "Pending")     return "🕐";
-  if (status === "In Progress") return "🔧";
+  if (status === "Pending")     ;
+  if (status === "In Progress") ;
   if (status === "Resolved")    return "✅";
   return "";
 }
@@ -47,7 +47,7 @@ function IssueCard({ issue, onUpvote }) {
           background: "var(--surface2)", borderRadius: 6,
           padding: "4px 9px", width: "fit-content"
         }}>
-          📍 <span style={{ fontWeight: 500, color: "var(--text)" }}>{issue.location}</span>
+         <span style={{ fontWeight: 500, color: "var(--text)" }}>{issue.location}</span>
         </div>
       )}
 
