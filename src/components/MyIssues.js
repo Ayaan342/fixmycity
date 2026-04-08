@@ -112,7 +112,7 @@ class MyIssues extends Component {
                       className={"myissue-upvote" + (issue.voted ? " voted" : "")}
                       onClick={() => onUpvote(issue.id)}
                     >
-                      👍 {issue.upvotes}
+                       {issue.upvotes}
                     </button>
                   </div>
 
