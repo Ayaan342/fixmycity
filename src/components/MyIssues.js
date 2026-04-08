@@ -12,8 +12,8 @@ function statusBadgeClass(status) {
 }
 
 function statusIcon(status) {
-  if (status === "Pending")     return "🕐";
-  if (status === "In Progress") return "🔧";
+  if (status === "Pending")     ;
+  if (status === "In Progress") ;
   if (status === "Resolved")    return "✅";
   return "";
 }
@@ -47,7 +47,7 @@ class MyIssues extends Component {
       <div className="myissues-wrap page-fade-in">
         <div className="myissues-header">
           <div>
-            <h2 className="myissues-title">📁 My Reported Issues</h2>
+            <h2 className="myissues-title"> My Reported Issues</h2>
             <p className="myissues-sub">
               All issues you have submitted. Track status and engineer details here.
             </p>
@@ -70,7 +70,7 @@ class MyIssues extends Component {
         {filtered.length === 0 ? (
           <div className="myissues-empty">
             <div style={{ fontSize: "2.8rem", marginBottom: 12 }}>
-              {issues.length === 0 ? "📭" : "🔍"}
+              {issues.length === 0 ? "" : "🔍"}
             </div>
             <h3>
               {issues.length === 0
@@ -119,7 +119,7 @@ class MyIssues extends Component {
                   <p className="myissue-desc">{issue.description}</p>
 
                   <div className="myissue-location">
-                    📍 <span>{issue.location || "Location not specified"}</span>
+                     <span>{issue.location || "Location not specified"}</span>
                   </div>
 
                   <div className="myissue-footer">
@@ -129,7 +129,7 @@ class MyIssues extends Component {
                       </div>
                       <div>
                         <div className="eng-name">{engineer.name}</div>
-                        <div className="eng-contact">📞 {engineer.contact}</div>
+                        <div className="eng-contact"> {engineer.contact}</div>
                       </div>
                     </div>
                     <div className="myissue-date">📅 {issue.date}</div>
