@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 import "../styles/Navbar.css";
 
-function Navbar({ issueCount }) {
+function Navbar({ issueCount, myIssueCount }) {
   return (
     <nav className="navbar">
       <div className="navbar-inner">
@@ -28,6 +28,15 @@ function Navbar({ issueCount }) {
             ➕ Report Issue
           </NavLink>
           <NavLink
+            to="/my-issues"
+            className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}
+          >
+            📁 My Issues
+            {myIssueCount > 0 && (
+              <span className="nav-badge" style={{ background: "#16a34a" }}>{myIssueCount}</span>
+            )}
+          </NavLink>
+          <NavLink
             to="/admin"
             className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}
           >
@@ -40,7 +49,8 @@ function Navbar({ issueCount }) {
 }
 
 Navbar.propTypes = {
-  issueCount: PropTypes.number.isRequired,
+  issueCount:   PropTypes.number.isRequired,
+  myIssueCount: PropTypes.number.isRequired,
 };
 
 export default Navbar;

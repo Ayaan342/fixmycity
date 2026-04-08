@@ -5,14 +5,12 @@ import { useNavigate } from "react-router-dom";
 import { CATEGORIES, ENGINEERS, CATEGORY_ICONS } from "../data";
 import "../styles/ReportForm.css";
 
+const EMPTY_FORM = { title: "", location: "", description: "", category: "" };
+
 function ReportForm({ onSubmit }) {
   const navigate = useNavigate();
 
-  const [form, setForm] = useState({
-    title: "",
-    description: "",
-    category: "",
-  });
+  const [form, setForm]         = useState(EMPTY_FORM);
   const [errors, setErrors]     = useState({});
   const [submitted, setSubmitted] = useState(false);
 
@@ -22,6 +20,8 @@ function ReportForm({ onSubmit }) {
     const errs = {};
     if (!form.title.trim() || form.title.trim().length < 5)
       errs.title = "Title must be at least 5 characters.";
+    if (!form.location.trim() || form.location.trim().length < 5)
+      errs.location = "Please enter a valid location.";
     if (!form.description.trim() || form.description.trim().length < 10)
       errs.description = "Description must be at least 10 characters.";
     if (!form.category)
@@ -35,6 +35,11 @@ function ReportForm({ onSubmit }) {
     setErrors((prev) => ({ ...prev, [name]: undefined }));
   }
 
+  function handleClear() {
+    setForm(EMPTY_FORM);
+    setErrors({});
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
     const errs = validate();
@@ -44,7 +49,7 @@ function ReportForm({ onSubmit }) {
     }
     onSubmit(form);
     setSubmitted(true);
-    setForm({ title: "", description: "", category: "" });
+    setForm(EMPTY_FORM);
     setTimeout(() => {
       setSubmitted(false);
       navigate("/");
@@ -72,13 +77,29 @@ function ReportForm({ onSubmit }) {
               id="title"
               name="title"
               className="form-input"
-              placeholder="e.g. Pothole on MG Road near bus stop"
+              placeholder="e.g. Pothole near Central Bus Stop"
               value={form.title}
               onChange={handleChange}
               maxLength={120}
             />
             {errors.title && (
               <span className="form-error">⚠️ {errors.title}</span>
+            )}
+          </div>
+
+          <div className="form-group">
+            <label className="form-label" htmlFor="location">📍 Location</label>
+            <input
+              id="location"
+              name="location"
+              className="form-input"
+              placeholder="e.g. MG Road, near Central Bus Stop, Vellore"
+              value={form.location}
+              onChange={handleChange}
+              maxLength={200}
+            />
+            {errors.location && (
+              <span className="form-error">⚠️ {errors.location}</span>
             )}
           </div>
 
@@ -137,7 +158,7 @@ function ReportForm({ onSubmit }) {
               id="description"
               name="description"
               className="form-textarea"
-              placeholder="Describe the issue in detail — location, severity, duration…"
+              placeholder="Describe the issue in detail — severity, duration, impact…"
               value={form.description}
               onChange={handleChange}
               maxLength={500}
@@ -150,9 +171,14 @@ function ReportForm({ onSubmit }) {
             </span>
           </div>
 
-          <button type="submit" className="submit-btn">
-            Submit Report →
-          </button>
+          <div className="form-btn-row">
+            <button type="button" className="clear-btn" onClick={handleClear}>
+              🗑️ Clear
+            </button>
+            <button type="submit" className="submit-btn">
+              Submit Report →
+            </button>
+          </div>
         </form>
       </div>
     </div>

@@ -40,6 +40,17 @@ function IssueCard({ issue, onUpvote }) {
 
       <p className="card-description">{issue.description}</p>
 
+      {issue.location && (
+        <div style={{
+          display: "flex", alignItems: "center", gap: 5,
+          fontSize: "0.78rem", color: "var(--text-muted)",
+          background: "var(--surface2)", borderRadius: 6,
+          padding: "4px 9px", width: "fit-content"
+        }}>
+          📍 <span style={{ fontWeight: 500, color: "var(--text)" }}>{issue.location}</span>
+        </div>
+      )}
+
       <div className="engineer-tag">
         <div className="eng-avatar">
           {engineer.name.split(" ").map((n) => n[0]).join("")}
@@ -70,6 +81,7 @@ IssueCard.propTypes = {
     id:          PropTypes.number.isRequired,
     title:       PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
+    location:    PropTypes.string,
     category:    PropTypes.string.isRequired,
     status:      PropTypes.string.isRequired,
     upvotes:     PropTypes.number.isRequired,

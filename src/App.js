@@ -5,7 +5,8 @@ import Navbar from "./components/Navbar";
 import Dashboard from "./components/Dashboard";
 import ReportForm from "./components/ReportForm";
 import AdminPanel from "./components/AdminPanel";
-import { INITIAL_ISSUES, ENGINEERS, CATEGORY_ICONS } from "./data";
+import MyIssues from "./components/MyIssues";
+import { INITIAL_ISSUES, ENGINEERS } from "./data";
 import "./styles/global.css";
 
 let nextId = INITIAL_ISSUES.length + 1;
@@ -28,12 +29,13 @@ function App() {
     );
   }
 
-  // Submit new issue from ReportForm
+  // Submit new issue from ReportForm — marks it as user-submitted
   function handleSubmit(form) {
     const engineer = ENGINEERS.find((e) => e.category === form.category) || ENGINEERS[5];
     const newIssue = {
       id: nextId++,
       title: form.title,
+      location: form.location,
       description: form.description,
       category: form.category,
       status: "Pending",
@@ -41,6 +43,7 @@ function App() {
       voted: false,
       date: new Date().toISOString().slice(0, 10),
       engineerId: engineer.id,
+      isUserIssue: true,   // flag to show in My Issues
     };
     setIssues((prev) => [newIssue, ...prev]);
   }
@@ -54,9 +57,11 @@ function App() {
     );
   }
 
+  const userIssues = issues.filter((i) => i.isUserIssue);
+
   return (
     <BrowserRouter>
-      <Navbar issueCount={issues.length} />
+      <Navbar issueCount={issues.length} myIssueCount={userIssues.length} />
       <main style={{ maxWidth: 1200, margin: "0 auto", padding: "32px 24px" }}>
         <Routes>
           <Route
@@ -66,6 +71,10 @@ function App() {
           <Route
             path="/report"
             element={<ReportForm onSubmit={handleSubmit} />}
+          />
+          <Route
+            path="/my-issues"
+            element={<MyIssues issues={userIssues} onUpvote={handleUpvote} />}
           />
           <Route
             path="/admin"

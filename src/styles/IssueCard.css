@@ -1,16 +1,22 @@
 /* src/styles/IssueCard.css */
+
 .issue-card {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 20px;
+
   display: flex;
   flex-direction: column;
+  justify-content: space-between; /* 🔥 keeps footer aligned */
+
   gap: 12px;
   transition: all var(--transition);
   animation: slideUp 0.3s ease forwards;
   position: relative;
   overflow: hidden;
+
+  height: 100%; /* 🔥 equal height */
 }
 
 .issue-card:hover {
@@ -66,14 +72,21 @@
   color: var(--primary);
 }
 
-.badge-pending   { background: var(--warning-light);  color: var(--warning);  }
-.badge-progress  { background: #ede9fe;               color: #7c3aed;         }
-.badge-resolved  { background: var(--success-light);  color: var(--success);  }
+.badge-pending   { background: var(--warning-light);  color: var(--warning); }
+.badge-progress  { background: #ede9fe;               color: #7c3aed; }
+.badge-resolved  { background: var(--success-light);  color: var(--success); }
 
 .card-description {
   font-size: 0.88rem;
   color: var(--text-muted);
   line-height: 1.55;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* 🔥 SAME HEIGHT FIX */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  flex-grow: 1; /* 🔥 pushes footer down */
 }
 
 .card-footer {
@@ -147,4 +160,7 @@
   justify-content: center;
 }
 
-.engineer-name { font-weight: 600; color: var(--text); }
+.engineer-name {
+  font-weight: 600;
+  color: var(--text);
+}

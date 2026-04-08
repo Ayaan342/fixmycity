@@ -90,6 +90,31 @@
   margin-top: 2px;
 }
 
+.top-issues-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  gap: 12px;
+}
+
+.top-issues-label {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.top-issues-hint {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  display: block;
+}
+
+
+
 .filter-bar {
   display: flex;
   align-items: center;

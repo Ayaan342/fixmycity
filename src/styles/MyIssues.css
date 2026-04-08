@@ -1,0 +1,217 @@
+/* src/styles/MyIssues.css */
+.myissues-wrap {
+  animation: fadeIn 0.35s ease;
+}
+
+.myissues-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.myissues-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.myissues-sub {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.myissues-count-badge {
+  background: var(--primary-light);
+  color: var(--primary);
+  border: 1px solid #bfdbfe;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 5px 14px;
+  white-space: nowrap;
+  align-self: flex-start;
+  margin-top: 4px;
+}
+
+.myissues-filters {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.filter-chip {
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.filter-chip:hover,
+.filter-chip.active {
+  background: var(--primary-light);
+  border-color: #bfdbfe;
+  color: var(--primary);
+}
+
+.myissues-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-muted);
+}
+
+.myissues-empty h3 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+
+.myissues-empty p {
+  font-size: 0.88rem;
+}
+
+.myissues-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.myissue-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--cat-color, var(--primary));
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition);
+  animation: slideUp 0.3s ease forwards;
+}
+
+.myissue-card:hover {
+  box-shadow: var(--shadow);
+  transform: translateX(3px);
+}
+
+.myissue-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.myissue-title-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.myissue-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.myissue-badges {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.myissue-upvote {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  background: var(--surface2);
+  border: 1.5px solid var(--border);
+  color: var(--text-muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all var(--transition);
+}
+
+.myissue-upvote:hover,
+.myissue-upvote.voted {
+  background: var(--primary-light);
+  color: var(--primary);
+  border-color: #bfdbfe;
+}
+
+.myissue-desc {
+  font-size: 0.87rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+.myissue-location {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--surface2);
+  border-radius: 6px;
+  padding: 5px 10px;
+  width: fit-content;
+}
+
+.myissue-location span {
+  font-weight: 500;
+  color: var(--text);
+}
+
+.myissue-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.myissue-engineer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.eng-avatar-sm {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.eng-name    { font-size: 0.83rem; font-weight: 700; color: var(--text); }
+.eng-contact { font-size: 0.76rem; color: var(--text-muted); }
+
+.myissue-date {
+  font-size: 0.78rem;
+  color: var(--text-light);
+}

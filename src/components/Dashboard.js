@@ -6,24 +6,25 @@ import IssueCard from "./IssueCard";
 import { CATEGORY_COLORS } from "../data";
 import "../styles/Dashboard.css";
 
-const STATUS_FILTERS = ["All", "Pending", "In Progress", "Resolved"];
+const TOP_N = 5;
 
 function Dashboard({ issues, onUpvote }) {
   const navigate = useNavigate();
-  const [statusFilter, setStatusFilter] = useState("All");
   const [categoryFilter, setCategoryFilter] = useState("All");
   const [search, setSearch] = useState("");
 
   const categories = ["All", ...Array.from(new Set(issues.map((i) => i.category)))];
 
-  const filtered = issues.filter((issue) => {
-    const matchStatus   = statusFilter === "All"   || issue.status === statusFilter;
+  // Sort by upvotes descending, then apply filters, then take top N
+  const topIssues = [...issues].sort((a, b) => b.upvotes - a.upvotes);
+
+  const filtered = topIssues.filter((issue) => {
     const matchCategory = categoryFilter === "All" || issue.category === categoryFilter;
     const matchSearch   = !search ||
       issue.title.toLowerCase().includes(search.toLowerCase()) ||
       issue.description.toLowerCase().includes(search.toLowerCase());
-    return matchStatus && matchCategory && matchSearch;
-  });
+    return matchCategory && matchSearch;
+  }).slice(0, TOP_N);
 
   const pending    = issues.filter((i) => i.status === "Pending").length;
   const inProgress = issues.filter((i) => i.status === "In Progress").length;
@@ -80,18 +81,16 @@ function Dashboard({ issues, onUpvote }) {
         </div>
       </div>
 
+      {/* Section heading for top issues */}
+      <div className="top-issues-heading">
+        <div>
+          <span className="top-issues-label">🏆 Top {TOP_N} Most Upvoted Issues</span>
+          <span className="top-issues-hint">Showing the most critical issues by community votes</span>
+        </div>
+      </div>
+
       <div className="filter-bar">
-        <span className="filter-label">Status:</span>
-        {STATUS_FILTERS.map((s) => (
-          <button
-            key={s}
-            className={"filter-btn" + (statusFilter === s ? " active" : "")}
-            onClick={() => setStatusFilter(s)}
-          >
-            {s}
-          </button>
-        ))}
-        <span className="filter-label" style={{ marginLeft: 8 }}>Category:</span>
+        <span className="filter-label">Category:</span>
         {categories.map((c) => (
           <button
             key={c}
@@ -121,8 +120,11 @@ function Dashboard({ issues, onUpvote }) {
         </div>
       ) : (
         <div className="issues-grid">
-          {filtered.map((issue) => (
-            <IssueCard key={issue.id} issue={issue} onUpvote={onUpvote} />
+          {filtered.map((issue, idx) => (
+            <div key={issue.id} style={{ position: "relative" }}>
+             
+              <IssueCard issue={issue} onUpvote={onUpvote} />
+            </div>
           ))}
         </div>
       )}
