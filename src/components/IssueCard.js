@@ -21,7 +21,7 @@ function statusIcon(status) {
 function IssueCard({ issue, onUpvote }) {
   const engineer = ENGINEERS.find((e) => e.id === issue.engineerId) || ENGINEERS[5];
   const catColor = CATEGORY_COLORS[issue.category] || "#2563eb";
-  const catIcon  = CATEGORY_ICONS[issue.category]  || "📋";
+  const catIcon  = CATEGORY_ICONS[issue.category]  || "";
 
   return (
     <div className="issue-card" style={{ "--category-color": catColor }}>
@@ -68,7 +68,7 @@ function IssueCard({ issue, onUpvote }) {
           onClick={() => onUpvote(issue.id)}
           aria-label="Upvote this issue"
         >
-          <span className="thumb-icon">👍</span>
+          <span className="thumb-icon"></span>
           {issue.upvotes} Upvotes
         </button>
       </div>
