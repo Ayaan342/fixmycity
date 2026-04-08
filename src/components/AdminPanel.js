@@ -21,7 +21,7 @@ function AdminPanel({ issues, onStatusChange }) {
   return (
     <div className="admin-wrap">
       <div className="admin-header">
-        <h2 className="admin-title">🛡️ Admin Panel</h2>
+        <h2 className="admin-title">Admin Panel</h2>
         <span className="admin-badge">Municipal Authority</span>
       </div>
 
@@ -106,7 +106,7 @@ function AdminPanel({ issues, onStatusChange }) {
                     </div>
                   </td>
                   <td>
-                    <div className="upvote-count">👍 {issue.upvotes}</div>
+                    <div className="upvote-count">{issue.upvotes}</div>
                   </td>
                   <td>
                     <select
