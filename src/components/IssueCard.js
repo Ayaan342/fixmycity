@@ -14,7 +14,7 @@ function statusBadgeClass(status) {
 function statusIcon(status) {
   if (status === "Pending")     ;
   if (status === "In Progress") ;
-  if (status === "Resolved")    return "✅";
+  if (status === "Resolved")    ;
   return "";
 }
 
