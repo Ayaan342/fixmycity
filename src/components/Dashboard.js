@@ -39,7 +39,7 @@ function Dashboard({ issues, onUpvote }) {
           <p>Track and upvote civic problems reported by citizens in your area.</p>
         </div>
         <button className="hero-cta" onClick={() => navigate("/report")}>
-          ➕ Report Issue
+           Report Issue
         </button>
       </div>
 
@@ -84,7 +84,7 @@ function Dashboard({ issues, onUpvote }) {
       {/* Section heading for top issues */}
       <div className="top-issues-heading">
         <div>
-          <span className="top-issues-label">🏆 Top {TOP_N} Most Upvoted Issues</span>
+          <span className="top-issues-label"> Top {TOP_N} Most Upvoted Issues</span>
           <span className="top-issues-hint">Showing the most critical issues by community votes</span>
         </div>
       </div>
