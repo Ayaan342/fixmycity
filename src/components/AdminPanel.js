@@ -27,7 +27,7 @@ function AdminPanel({ issues, onStatusChange }) {
 
       <div className="admin-stats">
         <div className="stat-card">
-          <div className="stat-icon">📋</div>
+          <div className="stat-icon"></div>
           <div className="stat-value">{issues.length}</div>
           <div className="stat-label">Total Issues</div>
         </div>
