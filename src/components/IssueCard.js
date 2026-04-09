@@ -68,7 +68,7 @@ function IssueCard({ issue, onUpvote }) {
           onClick={() => onUpvote(issue.id)}
           aria-label="Upvote this issue"
         >
-          <span className="thumb-icon"></span>
+          <span className="thumb-icon">👍</span>
           {issue.upvotes} Upvotes
         </button>
       </div>
