@@ -20,12 +20,12 @@ export const CATEGORY_COLORS = {
 };
 
 export const CATEGORY_ICONS = {
-  Roads:       "",
-  Sanitation:  "",
-  Water:       "",
-  Electricity: "",
-  Parks:       "",
-  Other:       "",
+   Roads:       "🛣️",
+  Sanitation:  "🗑️",
+  Water:       "💧",
+  Electricity: "⚡",
+  Parks:       "🌳",
+  Other:       "📋",
 };
 
 export const INITIAL_ISSUES = [
